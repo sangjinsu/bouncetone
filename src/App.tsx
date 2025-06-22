@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import GameCanvas from './components/GameCanvas';
 
 const App = () => {
@@ -23,14 +23,14 @@ const App = () => {
         else if (finalScore >= 500) grade = 'B';
         else if (finalScore >= 300) grade = 'C';
 
-        return { finalScore, grade };
+        return {finalScore, grade};
     };
 
     const handleClear = () => {
         if (startTime === null) return;
         const elapsed = (Date.now() - startTime) / 1000;
         setTime(elapsed);
-        const { finalScore, grade } = calculateScore(elapsed);
+        const {finalScore, grade} = calculateScore(elapsed);
         setScore(finalScore);
         setGrade(grade);
         setIsCleared(true);
@@ -68,19 +68,29 @@ const App = () => {
                     <h1 className="text-3xl font-bold">🎵 BounceTone</h1>
                     <p>난이도를 선택하세요</p>
                     <div className="flex space-x-4">
-                        <button onClick={() => { setMode('easy'); handleStart(); }} className="px-4 py-2 bg-green-500 rounded">Easy</button>
-                        <button onClick={() => { setMode('normal'); handleStart(); }} className="px-4 py-2 bg-yellow-500 rounded">Normal</button>
-                        <button onClick={() => { setMode('hard'); handleStart(); }} className="px-4 py-2 bg-red-500 rounded">Hard</button>
+                        <button onClick={() => {
+                            setMode('easy');
+                            handleStart();
+                        }} className="px-4 py-2 bg-green-500 rounded">Easy
+                        </button>
+                        <button onClick={() => {
+                            setMode('normal');
+                            handleStart();
+                        }} className="px-4 py-2 bg-yellow-500 rounded">Normal
+                        </button>
+                        <button onClick={() => {
+                            setMode('hard');
+                            handleStart();
+                        }} className="px-4 py-2 bg-red-500 rounded">Hard
+                        </button>
                     </div>
                 </div>
             ) : (
                 <>
-                    <GameCanvas mode={mode} onClear={handleClear} />
-                    <div className="absolute top-4 left-4 text-lg bg-black/50 px-3 py-1 rounded">
-                        ⏱ {time.toFixed(1)}초
-                    </div>
+                    <GameCanvas mode={mode} onClear={handleClear}/>
                     {isCleared && (
-                        <div className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center space-y-6 z-50">
+                        <div
+                            className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center space-y-6 z-50">
                             <h2 className="text-4xl font-bold text-yellow-300">🎉 클리어!</h2>
                             <p className="text-lg">⏱ 기록: {time.toFixed(1)}초</p>
                             <p className="text-xl">🏆 점수: {score}점</p>

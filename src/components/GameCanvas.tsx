@@ -97,7 +97,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ mode, onClear }) => {
         };
 
         let jumpCount = 0;
-        const maxJumps = 2;
+        const maxJumps = 1;
 
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.code === 'ArrowLeft') movement.left = true;
@@ -210,7 +210,8 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ mode, onClear }) => {
                 }
 
                 if (pair.bodyA === startBlock || pair.bodyB === startBlock) {
-                    if ((pair.bodyA.isStatic || pair.bodyB.isStatic)) {
+                    const other = pair.bodyA === startBlock ? pair.bodyB : pair.bodyA;
+                    if (other.label === 'wall') {
                         jumpCount = 0;
                     }
                 }
