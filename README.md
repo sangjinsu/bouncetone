@@ -1,55 +1,56 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎵 BounceTone
 
-Currently, two official plugins are available:
+플레이하러 가기 → https://bouncetone.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+간단하고 직관적인 웹 기반 피지컬 점프 게임입니다.
+친구들과 커피 내기를 하거나 점수 경쟁을 하며 즐길 수 있어요!
 
-## Expanding the ESLint configuration
+⸻
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🕹 게임 목적
+•	가볍게 즐길 수 있는 미니 점프 게임입니다.
+•	1등이 커피를 면제받는 등 소소한 내기에 적합합니다.
+•	벽에 부딪히면 소리가 나고, 목표 지점에 빠르게 도달하면 높은 점수를 받을 수 있어요!
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+⸻
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🎮 게임 방법
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+항목	설명
+조작	⬅️ 왼쪽 이동➡️ 오른쪽 이동Space ␣ 점프 / 이중 점프 (벽에 닿으면 점프 회복)
+목표	도착 지점(금색 블록)에 도달하면 클리어
+점수	도달 시간에 따라 점수 산정 (빠를수록 좋음)
+난이도	Easy / Normal / Hard 선택 가능
+벽 효과	벽에 부딪히면 음계 소리와 함께 벽 색상이 애니메이션처럼 바뀝니다
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# bouncetone
+
+⸻
+
+🌟 특징
+•	랜덤 맵 생성: 난이도마다 3개의 맵이 준비되어 있음
+•	음계 효과: 벽에 충돌할 때마다 해당 벽에 할당된 계이름의 소리가 재생됨
+•	컬러 펄스 애니메이션: 벽 색상은 충돌 시 계이름에 따라 반응
+•	S/A/B 등급 시스템: 점수에 따라 등급 부여 및 최고 기록 갱신 여부 표시
+•	기록 저장: 브라우저 localStorage에 모드별 최고 기록이 저장됨
+
+⸻
+
+📦 개발 정보
+•	Framework: React + TypeScript + Vite
+•	Physics: Matter.js
+•	Sound: Howler.js
+•	배포: Vercel
+
+⸻
+
+✨ 커스텀 플레이
+•	소리 커스터마이징
+•	맵 커스터마이징 추가 예정
+•	벽 튕김 이펙트 개선 예정
+
+⸻
+
+👨‍💻 개발자
+
+Made by [@sangjinsu] - feel free to fork and modify.
